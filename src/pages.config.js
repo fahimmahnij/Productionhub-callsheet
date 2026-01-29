@@ -50,6 +50,9 @@
 import Dashboard from './pages/Dashboard';
 import Projects from './pages/Projects';
 import ScriptAnalysis from './pages/ScriptAnalysis';
+import Locations from './pages/Locations';
+import Crew from './pages/Crew';
+import CrewJoin from './pages/CrewJoin';
 import __Layout from './Layout.jsx';
 
 
@@ -57,6 +60,9 @@ export const PAGES = {
     "Dashboard": Dashboard,
     "Projects": Projects,
     "ScriptAnalysis": ScriptAnalysis,
+    "Locations": Locations,
+    "Crew": Crew,
+    "CrewJoin": CrewJoin,
 }
 
 export const pagesConfig = {
