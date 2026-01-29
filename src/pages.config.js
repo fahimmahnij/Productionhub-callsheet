@@ -53,6 +53,8 @@ import ScriptAnalysis from './pages/ScriptAnalysis';
 import Locations from './pages/Locations';
 import Crew from './pages/Crew';
 import CrewJoin from './pages/CrewJoin';
+import Schedule from './pages/Schedule';
+import CallSheets from './pages/CallSheets';
 import __Layout from './Layout.jsx';
 
 
@@ -63,6 +65,8 @@ export const PAGES = {
     "Locations": Locations,
     "Crew": Crew,
     "CrewJoin": CrewJoin,
+    "Schedule": Schedule,
+    "CallSheets": CallSheets,
 }
 
 export const pagesConfig = {
