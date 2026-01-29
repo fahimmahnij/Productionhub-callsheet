@@ -80,22 +80,22 @@ export default function Dashboard() {
   ];
 
   const statusColors = {
-    draft: "bg-okeefe-earth/20 text-okeefe-earth border-okeefe-earth/30",
-    pre_production: "bg-okeefe-terracotta/20 text-okeefe-terracotta border-okeefe-terracotta/30",
-    production: "bg-okeefe-sage/20 text-okeefe-sage border-okeefe-sage/30",
-    post_production: "bg-okeefe-sky/20 text-okeefe-sky border-okeefe-sky/30",
-    completed: "bg-okeefe-rose/20 text-okeefe-rose border-okeefe-rose/30"
+    draft: "bg-gray-100 text-gray-700 border-gray-200",
+    pre_production: "bg-amber-50 text-amber-700 border-amber-200",
+    production: "bg-green-50 text-green-700 border-green-200",
+    post_production: "bg-blue-50 text-blue-700 border-blue-200",
+    completed: "bg-purple-50 text-purple-700 border-purple-200"
   };
 
   return (
-    <div className="p-4 md:p-8 space-y-8 relative">
+    <div className="p-4 md:p-8 space-y-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-serif italic text-okeefe-earth"
+            className="text-3xl md:text-4xl font-bold text-gray-900"
           >
             Welcome to Shilpi
           </motion.h1>
@@ -103,9 +103,9 @@ export default function Dashboard() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-okeefe-earth/60 mt-2 font-light"
+            className="text-gray-600 mt-1"
           >
-            Your AI-powered film production studio
+            Your AI-powered film production command center
           </motion.p>
         </div>
         <motion.div
@@ -114,8 +114,8 @@ export default function Dashboard() {
           transition={{ delay: 0.2 }}
         >
           <Link to={createPageUrl("Projects")}>
-            <Button className="okeefe-gradient text-okeefe-cream shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-6 py-6 soft-shadow">
-              <Plus className="w-5 h-5 mr-2" />
+            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm">
+              <Plus className="w-4 h-4 mr-2" />
               New Project
             </Button>
           </Link>
@@ -132,20 +132,20 @@ export default function Dashboard() {
             transition={{ delay: index * 0.1 }}
           >
             <Link to={createPageUrl(stat.href)}>
-              <Card className="bg-okeefe-cream/60 backdrop-blur-sm border-2 border-okeefe-earth/20 hover:border-okeefe-terracotta/40 transition-all duration-300 cursor-pointer group rounded-3xl soft-shadow">
-                <CardContent className="p-6">
+              <Card className="bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all cursor-pointer group">
+                <CardContent className="p-5">
                   <div className="flex items-start justify-between">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${stat.color.replace('from-', 'from-okeefe-').replace('to-', 'to-okeefe-').replace('amber', 'terracotta').replace('emerald', 'sage').replace('blue', 'sky').replace('purple', 'rose')} flex items-center justify-center soft-shadow group-hover:scale-110 transition-all duration-500 organic-blob`}>
-                      <stat.icon className="w-6 h-6 text-okeefe-cream" />
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-sm`}>
+                      <stat.icon className="w-6 h-6 text-white" />
                     </div>
-                    <ArrowRight className="w-5 h-5 text-okeefe-earth/40 group-hover:text-okeefe-terracotta group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
                   </div>
                   <div className="mt-4">
-                    <p className="text-4xl font-light text-okeefe-earth">{stat.value}</p>
+                    <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
                     {stat.total !== undefined && (
-                      <p className="text-xs text-okeefe-earth/50 font-light">of {stat.total} total</p>
+                      <p className="text-xs text-gray-500">of {stat.total} total</p>
                     )}
-                    <p className="text-sm text-okeefe-earth/70 mt-2 font-light">{stat.label}</p>
+                    <p className="text-sm text-gray-600 mt-1">{stat.label}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -163,14 +163,14 @@ export default function Dashboard() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <Card className="bg-okeefe-cream/60 backdrop-blur-sm border-2 border-okeefe-earth/20 rounded-3xl soft-shadow">
+          <Card className="bg-white border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-lg font-light text-okeefe-earth flex items-center gap-2">
-                <Film className="w-5 h-5 text-okeefe-terracotta" />
+              <CardTitle className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <Film className="w-5 h-5 text-indigo-600" />
                 Recent Projects
               </CardTitle>
               <Link to={createPageUrl("Projects")}>
-                <Button variant="ghost" size="sm" className="text-okeefe-earth/60 hover:text-okeefe-terracotta rounded-full transition-colors duration-300">
+                <Button variant="ghost" size="sm" className="text-gray-600 hover:text-gray-900">
                   View All <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </Link>
@@ -184,10 +184,10 @@ export default function Dashboard() {
                 </div>
               ) : projects.length === 0 ? (
                 <div className="text-center py-12">
-                  <Clapperboard className="w-12 h-12 text-okeefe-earth/30 mx-auto mb-3" />
-                  <p className="text-okeefe-earth/60 mb-4 font-light">No projects yet</p>
+                  <Clapperboard className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-600 mb-4">No projects yet</p>
                   <Link to={createPageUrl("Projects")}>
-                    <Button className="okeefe-gradient text-okeefe-cream rounded-full px-6 soft-shadow">
+                    <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
                       <Plus className="w-4 h-4 mr-2" />
                       Create Your First Project
                     </Button>
@@ -201,22 +201,22 @@ export default function Dashboard() {
                       to={createPageUrl(`ScriptAnalysis?projectId=${project.id}`)}
                       className="block"
                     >
-                      <div className="p-4 rounded-2xl bg-okeefe-sand/40 hover:bg-okeefe-sand/60 border-2 border-okeefe-earth/10 hover:border-okeefe-terracotta/30 transition-all duration-300 group soft-shadow">
+                      <div className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 transition-all group">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-okeefe-terracotta to-okeefe-rose flex items-center justify-center organic-blob">
-                              <Film className="w-5 h-5 text-okeefe-cream" />
+                            <div className="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center">
+                              <Film className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                              <h3 className="font-light text-okeefe-earth group-hover:text-okeefe-terracotta transition-colors duration-300">
+                              <h3 className="font-medium text-gray-900">
                                 {project.name}
                               </h3>
-                              <p className="text-xs text-okeefe-earth/50 font-light">
+                              <p className="text-xs text-gray-500">
                                 Created {format(new Date(project.created_date), "MMM d, yyyy")}
                               </p>
                             </div>
                           </div>
-                          <Badge className={`${statusColors[project.status || 'draft']} border rounded-full px-3 py-1`}>
+                          <Badge className={`${statusColors[project.status || 'draft']} border`}>
                             {(project.status || 'draft').replace('_', ' ')}
                           </Badge>
                         </div>
@@ -253,35 +253,35 @@ export default function Dashboard() {
           transition={{ delay: 0.4 }}
         >
           {/* Quick Actions */}
-          <Card className="bg-okeefe-cream/60 backdrop-blur-sm border-2 border-okeefe-earth/20 rounded-3xl soft-shadow">
+          <Card className="bg-white border border-gray-200">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg font-light text-okeefe-earth flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-okeefe-terracotta" />
+              <CardTitle className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-indigo-600" />
                 Quick Actions
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               <Link to={createPageUrl("ScriptAnalysis")} className="block">
-                <Button variant="outline" className="w-full justify-start border-2 border-okeefe-earth/20 bg-okeefe-sand/30 hover:bg-okeefe-sand/50 text-okeefe-earth hover:text-okeefe-terracotta rounded-full transition-all duration-300">
-                  <FileText className="w-4 h-4 mr-2 text-okeefe-terracotta" />
+                <Button variant="outline" className="w-full justify-start border-gray-200 hover:bg-gray-50 text-gray-700">
+                  <FileText className="w-4 h-4 mr-2 text-indigo-600" />
                   Analyze New Script
                 </Button>
               </Link>
               <Link to={createPageUrl("Crew")} className="block">
-                <Button variant="outline" className="w-full justify-start border-2 border-okeefe-earth/20 bg-okeefe-sand/30 hover:bg-okeefe-sand/50 text-okeefe-earth hover:text-okeefe-terracotta rounded-full transition-all duration-300">
-                  <Users className="w-4 h-4 mr-2 text-okeefe-sage" />
+                <Button variant="outline" className="w-full justify-start border-gray-200 hover:bg-gray-50 text-gray-700">
+                  <Users className="w-4 h-4 mr-2 text-green-600" />
                   Invite Crew Members
                 </Button>
               </Link>
               <Link to={createPageUrl("Locations")} className="block">
-                <Button variant="outline" className="w-full justify-start border-2 border-okeefe-earth/20 bg-okeefe-sand/30 hover:bg-okeefe-sand/50 text-okeefe-earth hover:text-okeefe-terracotta rounded-full transition-all duration-300">
-                  <MapPin className="w-4 h-4 mr-2 text-okeefe-sky" />
+                <Button variant="outline" className="w-full justify-start border-gray-200 hover:bg-gray-50 text-gray-700">
+                  <MapPin className="w-4 h-4 mr-2 text-blue-600" />
                   Scout Locations
                 </Button>
               </Link>
               <Link to={createPageUrl("CallSheets")} className="block">
-                <Button variant="outline" className="w-full justify-start border-2 border-okeefe-earth/20 bg-okeefe-sand/30 hover:bg-okeefe-sand/50 text-okeefe-earth hover:text-okeefe-terracotta rounded-full transition-all duration-300">
-                  <Calendar className="w-4 h-4 mr-2 text-okeefe-rose" />
+                <Button variant="outline" className="w-full justify-start border-gray-200 hover:bg-gray-50 text-gray-700">
+                  <Calendar className="w-4 h-4 mr-2 text-purple-600" />
                   Generate Call Sheet
                 </Button>
               </Link>
@@ -289,18 +289,18 @@ export default function Dashboard() {
           </Card>
 
           {/* Upcoming Shoots */}
-          <Card className="bg-okeefe-cream/60 backdrop-blur-sm border-2 border-okeefe-earth/20 rounded-3xl soft-shadow">
+          <Card className="bg-white border border-gray-200">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg font-light text-okeefe-earth flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-okeefe-terracotta" />
+              <CardTitle className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-indigo-600" />
                 Upcoming Shoots
               </CardTitle>
             </CardHeader>
             <CardContent>
               {shootDays.filter(s => new Date(s.shoot_date) >= new Date()).length === 0 ? (
                 <div className="text-center py-6">
-                  <Clock className="w-8 h-8 text-okeefe-earth/30 mx-auto mb-2" />
-                  <p className="text-sm text-okeefe-earth/60 font-light">No upcoming shoots</p>
+                  <Clock className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600">No upcoming shoots</p>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -308,17 +308,17 @@ export default function Dashboard() {
                     .filter(s => new Date(s.shoot_date) >= new Date())
                     .slice(0, 3)
                     .map((day) => (
-                      <div key={day.id} className="p-3 rounded-2xl bg-okeefe-sand/40 border-2 border-okeefe-earth/10 soft-shadow">
+                      <div key={day.id} className="p-3 rounded-lg bg-gray-50 border border-gray-200">
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="text-sm font-light text-okeefe-earth">
+                            <p className="text-sm font-medium text-gray-900">
                               {format(new Date(day.shoot_date), "EEEE, MMM d")}
                             </p>
-                            <p className="text-xs text-okeefe-earth/50 font-light">
+                            <p className="text-xs text-gray-500">
                               {day.location_name || "Location TBD"}
                             </p>
                           </div>
-                          <Badge variant="outline" className="border-okeefe-terracotta/30 text-okeefe-terracotta rounded-full">
+                          <Badge variant="outline" className="border-indigo-200 text-indigo-700">
                             {day.scenes_scheduled?.length || 0} scenes
                           </Badge>
                         </div>
