@@ -168,10 +168,11 @@ export default function Layout({ children, currentPageName }) {
                   to={createPageUrl(item.page)}
                   onClick={() => setSidebarOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
+                    "flex items-center gap-3 px-4 py-3 text-sm font-light transition-all duration-300",
+                    "rounded-full",
                     isActive 
-                      ? "nav-item-active text-amber-400 bg-amber-500/10" 
-                      : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                      ? "nav-item-active text-okeefe-terracotta bg-okeefe-rose/10 border-l-4 border-okeefe-terracotta" 
+                      : "text-okeefe-earth/70 hover:text-okeefe-terracotta hover:bg-okeefe-sand/30"
                   )}
                 >
                   <Icon className={cn("w-5 h-5", isActive && "text-okeefe-terracotta")} />
